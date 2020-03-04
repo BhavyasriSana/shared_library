@@ -54,13 +54,8 @@ def resultJson = jsonSlurper.parse(reader)
 	  print (state)
    def s=resultJson.builds[i].changeSets.size()
 	  int size = Integer.parseInt(s);
-	  if(size>1){
-		  int len=size-1
-	  }
-	  else{
-		  int len=size-1
-	  }
-	  print (len)
+	  print (size)
+	  int len = size-1;
   
    if(resultJson.builds[i].changeSets[len].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
    {
