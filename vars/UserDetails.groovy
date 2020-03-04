@@ -46,24 +46,23 @@ def resultJson = jsonSlurper.parse(reader)
 	   def cnf=0
     def email=jsonObj.config.emails.email[j] 
 	   print(email)
-  for(i=1;i<value;i++)
+  for(i=1;i<value-1;i++)
   {
  
    
    def state=resultJson.builds[i].result
 	  print (state)
    def s=resultJson.builds[i].changeSets.size()
-	  //int size = Integer.parseInt(s);
 	  print (s)
-	  //int len = size-1;
+	  int len = size-1;
   
-   if(resultJson.builds[i].changeSets[0].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
+   if(resultJson.builds[i].changeSets[len].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
    {
    
     USERS.add(resultJson.builds[i])
 	  
    }
-   else if(resultJson.builds[i].changeSets[0].items[0].authorEmail.equals(email) && state.equals("FAILURE"))
+   else if(resultJson.builds[i].changeSets[len].items[0].authorEmail.equals(email) && state.equals("FAILURE"))
    {
 	   
 	   USERF.add(resultJson.builds[i])
