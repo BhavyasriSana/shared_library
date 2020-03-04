@@ -38,7 +38,7 @@ def resultJson = jsonSlurper.parse(reader)
 
 	def jsonBuilder = new groovy.json.JsonBuilder()
 
-   for(j=0;j<mailcount;j++)
+   /*for(j=0;j<mailcount;j++)
    {
 	   def cns=0
 	   def cnf=0
@@ -77,7 +77,7 @@ def resultJson = jsonSlurper.parse(reader)
    cnf=USERF.size()
    LISTFAILURE.add(["email":email,"failure":LISF[j],"Failure_cnt":cnf])
    USERF.clear()
-   }
+   }*/
 	for(i=0;i<50;i++)
   {
    //def date=resultJson.results.result[i].buildCompletedDate
@@ -104,8 +104,8 @@ def resultJson = jsonSlurper.parse(reader)
   "teamsuccessbuild_cnt" : SUCCESS.size(),
   "teamfailure" : FAILURE,
   "teamfailurebuild_cnt" :FAILURE.size(),
-  "individualsuccess": LISTSUCCESS,
-  "individualfailure": LISTFAILURE
+  //"individualsuccess": LISTSUCCESS,
+  //"individualfailure": LISTFAILURE
   )
 	
 File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/jenkins.json")
