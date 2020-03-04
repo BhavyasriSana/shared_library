@@ -39,13 +39,13 @@ def resultJson = jsonSlurper.parse(reader)
 
 	def jsonBuilder = new groovy.json.JsonBuilder()
 
-   /*for(j=0;j<mailcount;j++)
+   for(j=0;j<mailcount;j++)
    {
 	   def cns=0
 	   def cnf=0
     def email=jsonObj.config.emails.email[j] 
 	   print(email)
-  for(i=0;i<50;i++)
+  for(i=0;i<value;i++)
   {
  
    
@@ -54,13 +54,13 @@ def resultJson = jsonSlurper.parse(reader)
    //def size=resultJson.builds[i].changeSets.items.size()
    //print(size)
   
-   if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("Successful"))
+   if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("SUCCESS"))
    {
    
     USERS.add(resultJson.builds[i])
 	  
    }
-   else if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("Failed"))
+   else if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("FAILURE"))
    {
 	   
 	   USERF.add(resultJson.builds[i])
@@ -78,7 +78,7 @@ def resultJson = jsonSlurper.parse(reader)
    cnf=USERF.size()
    LISTFAILURE.add(["email":email,"failure":LISF[j],"Failure_cnt":cnf])
    USERF.clear()
-   }*/
+   }
 	for(i=1;i<value;i++)
   {
    //def date=resultJson.results.result[i].buildCompletedDate
