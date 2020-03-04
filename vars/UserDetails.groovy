@@ -18,6 +18,7 @@ def resultJson = jsonSlurper.parse(reader)
 	def build=resultJson.builds[0].id
 	print(build)
 	int value = Integer.parseInt(build);
+	print(value)
 
 
  
@@ -45,7 +46,7 @@ def resultJson = jsonSlurper.parse(reader)
 	   def cnf=0
     def email=jsonObj.config.emails.email[j] 
 	   print(email)
-  for(i=0;i<value;i++)
+  for(i=1;i<value;i++)
   {
  
    
