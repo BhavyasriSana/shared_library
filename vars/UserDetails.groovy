@@ -49,6 +49,7 @@ def resultJson = jsonSlurper.parse(reader)
  
    
    def state=resultJson.builds[i].result
+	  print (state)
    //def size=resultJson.builds[i].changeSets.items.size()
    //print(size)
   
