@@ -106,8 +106,8 @@ def resultJson = jsonSlurper.parse(reader)
   "teamsuccessbuild_cnt" : SUCCESS.size(),
   "teamfailure" : FAILURE,
   "teamfailurebuild_cnt" :FAILURE.size(),
-  //"individualsuccess": LISTSUCCESS,
-  //"individualfailure": LISTFAILURE
+  "individualsuccess": LISTSUCCESS,
+  "individualfailure": LISTFAILURE
   )
 	
 File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/jenkins.json")
