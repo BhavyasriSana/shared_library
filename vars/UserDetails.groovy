@@ -85,14 +85,14 @@ def resultJson = jsonSlurper.parse(reader)
 	  print(state)
 
    
-  if(state.equals("Successful"))
+  if(state.equals("SUCCESS"))
   {
    
  
    SUCCESS.add(resultJson.builds[i])
      
   }
-   else if(state.equals("Failed"))
+   else if(state.equals("FAILURE"))
    {
     
        FAILURE.add(resultJson.builds[i])
