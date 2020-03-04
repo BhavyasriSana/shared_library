@@ -52,13 +52,13 @@ def resultJson = jsonSlurper.parse(reader)
    //def size=resultJson.builds[i].changeSets.items.size()
    //print(size)
   
-   if(resultJson.builds[i].changeSets[0].items[0].authorEmail.equals(email) && state.equals("Successful"))
+   if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("Successful"))
    {
    
     USERS.add(resultJson.builds[i])
 	  
    }
-   else if(resultJson.builds[i].changeSets[0].items[0].authorEmail.equals(email) && state.equals("Failed"))
+   else if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("Failed"))
    {
 	   
 	   USERF.add(resultJson.builds[i])
