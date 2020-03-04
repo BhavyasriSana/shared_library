@@ -17,6 +17,7 @@ def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/
 def resultJson = jsonSlurper.parse(reader)
 	def build=resultJson.builds[0].id
 	print(build)
+	int value = Integer.parseInt(build);
 
 
  
@@ -78,7 +79,7 @@ def resultJson = jsonSlurper.parse(reader)
    LISTFAILURE.add(["email":email,"failure":LISF[j],"Failure_cnt":cnf])
    USERF.clear()
    }*/
-	for(i=1;i<build;i++)
+	for(i=1;i<value;i++)
   {
    //def date=resultJson.results.result[i].buildCompletedDate
    def state=resultJson.builds[i].result
