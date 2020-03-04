@@ -52,11 +52,10 @@ def resultJson = jsonSlurper.parse(reader)
    
    def state=resultJson.builds[i].result
 	  print (state)
-   //def s=resultJson.builds[i].changeSets.size()
-	  //print (s)
-	  //int len = s-1;
-  
-   if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("SUCCESS"))
+   def s=resultJson.builds[i].changeSets.size()
+	  print (s)
+	  if (s>0){
+		  if(resultJson.builds[i].changeSets.items.authorEmail.equals(email) && state.equals("SUCCESS"))
    {
    
     USERS.add(resultJson.builds[i])
@@ -67,6 +66,10 @@ def resultJson = jsonSlurper.parse(reader)
 	   
 	   USERF.add(resultJson.builds[i])
    }
+		  
+		  
+	  }
+	  //int len = s-1;
    }
    cns=USERS.size()
 
