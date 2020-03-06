@@ -47,8 +47,7 @@ create(json){
   
   jsonBuilder(
     "Teamname":TeamName,
-    "Metrics" : LIST
-    "Individual Mail":mail
+    "Metrics" : LIST,
     "Metrics" : LIST2
     
     
