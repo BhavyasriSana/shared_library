@@ -12,6 +12,7 @@ create(json){
   def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/jenkins.json"),"UTF-8"))
   def jsonObj = jsonSlurper.parse(reader)
   List<String> LIST = new ArrayList<String>();
+  List<String> LIST2 = new ArrayList<String>();
   //def jsonObj = readJSON text: metrics
   print(team)
   int score=0;
@@ -29,8 +30,7 @@ create(json){
 	print(indCount)
   for(j=0;j<mailcount;j++)
    {
-	   List<String> LIST2 = new ArrayList<String>();
-    def email=json.config.emails.email[j] 
+    def email=json.config.emails.email[j].mail
 	   print(email)
      for(k=0;k<indCount;k++){
        def mail=jsonObj.JENKINS.individualsuccess[k].email
