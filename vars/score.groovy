@@ -40,24 +40,22 @@ create(json){
          if(countS>1){
            score+=10;
            LIST2.add(["email":mail,"metric":"Successfull Builds","Value":score,"Tool":"JENKINS"])
-		 score=0;
          }
        }
      }
-	   score=0;
 	   def indCountf=jsonObj.JENKINS.individualfailure.size()
      for(k=0;k<indCountf;k++){
        def mail=jsonObj.JENKINS.individualfailure[k].email
 	     print(mail)
        if(email.equals(mail)){
          def countS=jsonObj.JENKINS.individualfailure[k].Failure_cnt
-         if(countS<5){
+         if(countS<1){
            score+=10;
            LIST2.add(["email":mail,"metric":"Failure Builds","Value":score,"Tool":"JENKINS"])
-		 score=0;
          }
        }
      }
+	   score=0;
    }
   
   
