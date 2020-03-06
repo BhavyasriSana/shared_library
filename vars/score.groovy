@@ -2,7 +2,7 @@ import groovy.json.*
 
 @NonCPS
 create(json){
-  def TeamName = json.riglet_info.name
+  def team = json.riglet_info.name
   def mailcount = json.config.emails.email.size()
 	print(mailcount)
    
@@ -14,7 +14,7 @@ create(json){
   List<String> LIST = new ArrayList<String>();
   List<String> LIST2 = new ArrayList<String>();
   //def jsonObj = readJSON text: metrics
-  print(TeamName)
+  print(team)
   int score=0;
   def teamS=jsonObj.JENKINS.teamsuccessbuild_cnt
   if(teamS>10){
@@ -46,7 +46,7 @@ create(json){
   
   
   jsonBuilder(
-    "Teamname":TeamName,
+    "Teamname":team,
     "Metrics" : LIST,
     "Metrics" : LIST2
     
