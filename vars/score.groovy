@@ -44,7 +44,7 @@ create(json){
          }
        }
      }
-	   score=10;
+	   score=0;
 	   def indCountf=jsonObj.JENKINS.individualfailure.size()
      for(k=0;k<indCountf;k++){
        def mail=jsonObj.JENKINS.individualfailure[k].email
