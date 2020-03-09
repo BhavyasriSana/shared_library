@@ -11,8 +11,8 @@ def call(jsondata){
 String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
  println(repoName)
-     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'password', usernameVariable:'username')]) {
-	sh "curl -X GET    -u ${username}:${password} https://api.github.com/repos/BhavyaBommisetti/${repoName}/commits -o commits.json"
+     withCredentials([usernamePassword(credentialsId: 'git_hub', passwordVariable: 'pass', usernameVariable: 'user')]) {
+	sh "curl -X GET -u ${user}:${pass} https://api.github.com/repos/BhavyaBommisetti/${repoName}/commits -o commits.json"
      }
    def jsonSlurper = new JsonSlurper()
  def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/commits.json"),"UTF-8"))
