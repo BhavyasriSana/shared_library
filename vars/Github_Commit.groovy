@@ -7,7 +7,7 @@ def call(jsondata){
       def jsonObj = readJSON text: jsonString
       int ecnt = jsonObj.riglet_info.auth_users.size()
          println("No of users "+ ecnt)
-      String a=jsonObj.scm1.repositories.repository.repo_name[0]
+      String a=jsonObj.scm.repositories.repository.repo_name[0]
 String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
  println(repoName)
