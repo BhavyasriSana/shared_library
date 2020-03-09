@@ -18,7 +18,7 @@ def call(jsondata){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 
-String a = jsonObj.code_quality.projects.project.project_name
+String a = jsonObj.code_quality.projects.project.project_key
 String ProjectName=a.replaceAll("\\[", "").replaceAll("\\]","");
   
 withCredentials([usernamePassword(credentialsId: 'sonar_cred', passwordVariable: 'password', usernameVariable: 'username')]){
