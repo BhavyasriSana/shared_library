@@ -7,7 +7,7 @@ def call(jsondata){
       def jsonObj = readJSON text: jsonString
       int ecnt = jsonObj.config.emails.email.size()
          println("No of users "+ ecnt)
-      String a=jsonObj.scm.repositories.repository.repo_name
+      String a=jsonObj.scm1.repositories.repository.repo_name
 String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
  println(repoName)
