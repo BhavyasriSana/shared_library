@@ -8,10 +8,10 @@ def call(JSON)
 {
 def jsonString = JSON
 def jsonObj = readJSON text: jsonString
-def mailcount = jsonObj.config.emails.email.size()
+def mailcount = jsonObj.riglet_info.auth_users.size()
 	print(mailcount)
 //sh "curl -X GET -g http://52.14.229.175:8080/job/${JOB_NAME}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u suneel:11035ac86f58bc32d03d8e873b7cc063a3 -o username.json"
-sh "curl -X GET -g http://18.224.172.87:8080//job/jenkins/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u BhavyasriSana:1185dbd72329ba8cbfc4f9179ed0d48c7a -o username.json"
+	sh "curl -X GET -g http://18.224.172.87:8080//job/${JOB_NAME}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u BhavyasriSana:1185dbd72329ba8cbfc4f9179ed0d48c7a -o username.json"
 	def jsonSlurper = new JsonSlurper()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/username.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
@@ -44,7 +44,7 @@ def resultJson = jsonSlurper.parse(reader)
    {
 	   def cns=0
 	   def cnf=0
-    def email=jsonObj.config.emails.email[j]
+    def email=jsonObj.riglet_info.auth_users[j]
 	   print(email)
   for(i=1;i<value-1;i++)
   {
