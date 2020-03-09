@@ -29,6 +29,9 @@ if(jsonStringa[i].contains("github"))
       def total=jsonObjb.JENKINS.teambuild_cnt
   def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
 	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
+	    LIST.add(["toolName":name,"metric":"total builds","value":total])
+	    LIST.add(["toolName":name,"metric":"successfull builds","value":scnt])
+	    LIST.add(["toolName":name,"metric":"failure builds","value":fcnt])
       }
       if(jsonStringa[i].contains("Sonar"))
     {
