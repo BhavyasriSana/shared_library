@@ -9,7 +9,7 @@ def call(JSON)
 def jsonString = JSON
 def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
-	def pro = jsonObj.ci.jobs.job.job_name
+	String pro = jsonObj.ci.jobs.job.job_name
 	String ProjectName=pro.replaceAll("\\[", "").replaceAll("\\]","");
 	print(mailcount)
 //sh "curl -X GET -g http://52.14.229.175:8080/job/${JOB_NAME}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u suneel:11035ac86f58bc32d03d8e873b7cc063a3 -o username.json"
