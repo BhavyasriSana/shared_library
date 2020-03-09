@@ -20,7 +20,7 @@ if(jsonStringa[i].contains("GITHUB"))
     name="github"
     def jsonObj1 = readJSON text: jsonStringa[i]
   def count =jsonObj1.GITHUB.commits_count
-  LIST.add(["toolName":name,"metric":"commits","value":count])
+  LIST.add(["toolName":name,"metricName":"commits","value":count])
    }
    if(jsonStringa[i].contains("JENKINS"))
     {
@@ -30,9 +30,9 @@ if(jsonStringa[i].contains("GITHUB"))
       def total=jsonObjb.JENKINS.teambuild_cnt
   def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
 	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
-	    LIST.add(["toolName":name,"metric":"total builds","value":total])
-	    LIST.add(["toolName":name,"metric":"successfull builds","value":scnt])
-	    LIST.add(["toolName":name,"metric":"failure builds","value":fcnt])
+	    LIST.add(["toolName":name,"metricName":"total builds","value":total])
+	    LIST.add(["toolName":name,"metricName":"successfull builds","value":scnt])
+	    LIST.add(["toolName":name,"metricName":"failure builds","value":fcnt])
       }
       if(jsonStringa[i].contains("Sonar"))
     {
