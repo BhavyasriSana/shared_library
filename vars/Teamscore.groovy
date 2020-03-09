@@ -18,7 +18,7 @@ List<String> jsonStringa= new ArrayList<String>();
 if(jsonStringa[i].contains("github"))
     {
     name="github"
-    def jsonObja = readJSON text: jsonStringa[i]
+    def jsonObj1 = readJSON text: jsonStringa[i]
   def count =jsonObj1.GITHUB.commits_count
   LIST.add(["toolName":name,"metric":"commits","value":count])
    }
@@ -26,9 +26,9 @@ if(jsonStringa[i].contains("github"))
     {
       name="jenkins"
       def jsonObjb = readJSON text: jsonStringa[i]
-      def total=jsonObj.JENKINS.teambuild_cnt
-  def scnt =jsonObj.JENKINS.teamsuccessbuild_cnt
-	    def fcnt=jsonObj.JENKINS.teamfailurebuild_cnt
+      def total=jsonObjb.JENKINS.teambuild_cnt
+  def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
+	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
       }
       if(jsonStringa[i].contains("Sonar"))
     {
