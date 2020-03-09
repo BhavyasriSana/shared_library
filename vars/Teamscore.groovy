@@ -22,10 +22,11 @@ if(jsonStringa[i].contains("github"))
   def count =jsonObj1.GITHUB.commits_count
   LIST.add(["toolName":name,"metric":"commits","value":count])
    }
-   if(jsonStringa[i].contains("Jenkins"))
+   if(jsonStringa[i].contains("JENKINS"))
     {
       name="jenkins"
       def jsonObjb = readJSON text: jsonStringa[i]
+	   // print jsonObjb
       def total=jsonObjb.JENKINS.teambuild_cnt
   def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
 	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
