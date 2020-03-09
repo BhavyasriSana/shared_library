@@ -5,7 +5,7 @@ import groovy.json.JsonSlurper
 def call(jsondata){
       def jsonString = jsondata
       def jsonObj = readJSON text: jsonString
-      int ecnt = jsonObj.config.emails.email.size()
+      int ecnt = jsonObj.riglet_info.auth_users.size()
          println("No of users "+ ecnt)
       String a=jsonObj.scm1.repositories.repository.repo_name[0]
 String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
@@ -28,7 +28,7 @@ def totalcommits = resultJson.size()
 	 def jsonBuilder = new groovy.json.JsonBuilder()
 for(i=0;i<ecnt;i++)
  {
-	def email=jsonObj.config.emails.email[i] 
+	def email=jsonObj.riglet_info.auth_users[i] 
   for(j=0;j<totalcommits;j++)
   {
 	 // println(jsonObj.config.emails.email[i])
