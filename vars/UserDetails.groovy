@@ -122,6 +122,7 @@ def resultJson = jsonSlurper.parse(reader)
 	
 File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/jenkins.json")
 file.write(jsonBuilder.toPrettyString())
+	return jsonBuilder
 	//def reader1 = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/bamboo.json"),"UTF-8"))
 //def resu = jsonSlurper.parse(reader1)
 
