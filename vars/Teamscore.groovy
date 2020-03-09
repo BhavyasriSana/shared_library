@@ -3,7 +3,7 @@ import groovy.json.*
 def call(jsondata,github,jenkins,sonar){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
-int ecount = jsonObj.config.emails.email.size()
+int ecount = jsonObj.riglet_info.auth_users.size()
 	def team=jsonObj.riglet_info.name
 List<String> jsonStringa= new ArrayList<String>();
   jsonStringa.add(github)
