@@ -15,7 +15,7 @@ List<String> jsonStringa= new ArrayList<String>();
     int score=0
     String name="  "
 	  String metric=" "
-if(jsonStringa[i].contains("github"))
+if(jsonStringa[i].contains("GITHUB"))
     {
     name="github"
     def jsonObj1 = readJSON text: jsonStringa[i]
