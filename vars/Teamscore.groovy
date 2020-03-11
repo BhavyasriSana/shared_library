@@ -60,8 +60,6 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
   file.write(jsonBuilder.toPrettyString())	
 	//def metrics1 = jsonBuilder.toString()
-	echo "Sending data to Gamification API"
-	sh "curl -X POST --header 'Content-Type: application/json' --data @/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json  http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add >> s.txt"
 }
 
 
