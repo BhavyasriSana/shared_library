@@ -92,7 +92,7 @@ def resultJson = jsonSlurper.parse(reader)
 	   LISS[j]=USERS.clone()
 	   LISF[j]=USERF.clone()
 	   
-   LISTTOTAL.add(["email":email,"success":LISS[j],"Success_cnt":cnt])
+   LISTTOTAL.add(["email":email,"success":LISS[j],"Total_cnt":cnt])
    USERT.clear()
 	   
    LISTSUCCESS.add(["email":email,"success":LISS[j],"Success_cnt":cns])
