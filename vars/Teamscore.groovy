@@ -59,3 +59,5 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
 file.write(jsonBuilder.toPrettyString())	
 }
+sh "curl -i -X POST -H "Content-Type: application/json" -d "jsonBuilder" 'http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add'"
+
