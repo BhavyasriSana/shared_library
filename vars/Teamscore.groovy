@@ -59,5 +59,64 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
 file.write(jsonBuilder.toPrettyString())	
 }
-sh "curl -i -X POST -H "Content-Type: application/json" -d "jsonBuilder" http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
+sh "curl -i -X POST -H "Content-Type: application/json" -d "{
+    "teamName": "Avengers",
+    "metrics": [
+        {
+            "toolName": "github",
+            "metricName": "commits",
+            "value": 30
+        },
+        {
+            "toolName": "jenkins",
+            "metricName": "total_builds",
+            "value": 24
+        },
+        {
+            "toolName": "jenkins",
+            "metricName": "successful_builds",
+            "value": 3
+        },
+        {
+            "toolName": "jenkins",
+            "metricName": "failure_builds",
+            "value": 19
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "violations",
+            "value": 2.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "complexity",
+            "value": 2.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "sqale_index",
+            "value": 12.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "bugs",
+            "value": 0.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "vulnerabilities",
+            "value": 0.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "coverage",
+            "value": 0.0
+        },
+        {
+            "toolName": "sonar",
+            "metricName": "duplicated_lines",
+            "value": 0.0
+        }
+    ]
+}" http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
 
