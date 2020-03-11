@@ -59,7 +59,7 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
 file.write(jsonBuilder.toPrettyString())	
 }
-sh "curl -X POST --data @/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add -o s.json"
+sh "curl -X POST --data @/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add >> s.txt"
 /*""" curl --location --request POST 'http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add' \
 --header 'Content-Type: application/json' \
 --data-raw '{
