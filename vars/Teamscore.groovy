@@ -1,6 +1,6 @@
 import groovy.json.*
 	
-@NonCPS
+
 def call(jsondata,github,jenkins,sonar){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
