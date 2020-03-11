@@ -87,12 +87,13 @@ def resultJson = jsonSlurper.parse(reader)
    }
    cns=USERS.size()
 	   cnt=USERT.size()
+	   print(USERT)
 
 	   LISF[j]=USERT.clone()
 	   LISS[j]=USERS.clone()
 	   LISF[j]=USERF.clone()
 	   
-   LISTTOTAL.add(["email":email,"success":LISS[j],"Total_cnt":cnt])
+   LISTTOTAL.add(["email":email,"Total":LISS[j],"Total_cnt":cnt])
    USERT.clear()
 	   
    LISTSUCCESS.add(["email":email,"success":LISS[j],"Success_cnt":cns])
@@ -106,7 +107,7 @@ def resultJson = jsonSlurper.parse(reader)
   {
    //def date=resultJson.results.result[i].buildCompletedDate
    def state=resultJson.builds[i].result
-	  print(state)
+	  //print(state)
 
    
   if(state.equals("SUCCESS"))
