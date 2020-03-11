@@ -12,6 +12,7 @@ List<String> jsonStringa= new ArrayList<String>();
 	jsonStringa.add(sonar)
    List<String> LIST = new ArrayList<String>();
    for(m=0;m<ecount;m++){
+	   def mail=jsonObj.riglet_info.auth_users[m]
    
    for(i=0;i<jsonStringa.size();i++)
   { 
@@ -29,11 +30,17 @@ if(jsonStringa[i].contains("GITHUB"))
     {
       name="jenkins"
       def jsonObjb = readJSON text: jsonStringa[i]
+	    def indCount=jsonObjb.JENKINS.individualsuccess.size()
+	    for(k=0;k<indCount;k++){
+       def email=jsonObjb.JENKINS.individualsuccess[k].email
+	     print(email)
+       if(mail.equals(email)){
+         def countS=jsonObj.JENKINS.individualsuccess[k].Success_cnt
 	   // print jsonObjb
       def total=jsonObjb.JENKINS.teambuild_cnt
   def scnt =jsonObjb.JENKINS.teamsuccessbuild_cnt
 	    def fcnt=jsonObjb.JENKINS.teamfailurebuild_cnt
-	    LIST.add(["toolName":name,"metricName":"total_builds","value":total])
+	    LIST.add(["toolName":name,"metricName":"total_builds","value":countS])
 	    LIST.add(["toolName":name,"metricName":"successful_builds","value":scnt])
 	    LIST.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
       }
