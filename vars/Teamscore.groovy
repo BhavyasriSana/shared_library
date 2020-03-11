@@ -38,7 +38,7 @@ if(jsonStringa[i].contains("GITHUB"))
     {
 	    name="sonar"
 	    def jsonObjc = readJSON text: jsonStringa[i]
-	    print jsonObjc
+	    //print jsonObjc
 	    for(i=0;i<jsonObjc.Sonar.Metrics.component.measures.size();i++){
 		    //print jsonObjc.Sonar.Metrics.component.measures
     def sonar_metric=jsonObjc.Sonar.Metrics.component.measures[i].metric
@@ -59,5 +59,5 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
 file.write(jsonBuilder.toPrettyString())	
 }
-sh "curl -i -X POST -H "Content-Type: application/json" -d "jsonBuilder" 'http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add'"
+sh "curl -i -X POST -H "Content-Type: application/json" -d "jsonBuilder" http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
 
