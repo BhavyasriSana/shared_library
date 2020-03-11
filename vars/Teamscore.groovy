@@ -59,7 +59,8 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
 file.write(jsonBuilder.toPrettyString())	
 }
-""" curl --location --request POST 'http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add' \
+"""curl -H "Content-Type: application/json" --data @/var/lib/jenkins/workspace/collector/Teamscore.json http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"""
+/*""" curl --location --request POST 'http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "teamName": "Avengers",
@@ -120,4 +121,4 @@ file.write(jsonBuilder.toPrettyString())
             "value": 0.0
         }
     ]
-}'"""
+}'"""*/
