@@ -18,8 +18,8 @@ String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
  def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/commits.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
 def totalcommits = resultJson.size()
-      println(totalcommits)
-	println(ecnt)
+      //println(totalcommits)
+	//println(ecnt)
       println(JsonOutput.toJson(resultJson))
       List<String> JSON = new ArrayList<String>();
    	 List<String> COMMIT = new ArrayList<String>();
