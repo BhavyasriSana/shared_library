@@ -6,11 +6,11 @@ def call(jsondata){
       def jsonString = jsondata
       def jsonObj = readJSON text: jsonString
       int ecnt = jsonObj.riglet_info.auth_users.size()
-         println("No of users "+ ecnt)
+         //println("No of users "+ ecnt)
       String a=jsonObj.scm.repositories.repository.repo_name[0]
 String repoName=a.replaceAll("\\[", "").replaceAll("\\]","");
 
- println(repoName)
+ //println(repoName)
      withCredentials([usernamePassword(credentialsId: 'git_hub', passwordVariable: 'pass', usernameVariable: 'user')]) {
 	sh "curl -X GET -u ${user}:${pass} https://api.github.com/repos/BhavyaBommisetti/${repoName}/commits -o commits.json"
      }
@@ -20,7 +20,7 @@ def resultJson = jsonSlurper.parse(reader)
 def totalcommits = resultJson.size()
       //println(totalcommits)
 	//println(ecnt)
-      println(JsonOutput.toJson(resultJson))
+      //println(JsonOutput.toJson(resultJson))
       List<String> JSON = new ArrayList<String>();
    	 List<String> COMMIT = new ArrayList<String>();
 	 List<String> LIST = new ArrayList<String>();
