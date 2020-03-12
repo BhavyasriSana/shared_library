@@ -42,7 +42,7 @@ int ecount = jsonObj.riglet_info.auth_users.size()
       
  // def res=bamboo1.bamboo.teamsuccessbuild_cnt
  // def obj = JSON.parse(bamboo1)
- println(scnt)
+ //println(scnt)
  //int score=0
 	  
  if(email==email1)
