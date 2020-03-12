@@ -1,6 +1,6 @@
 import groovy.json.*
 import groovy.json.JsonOutput
-def call(jsondata,jenkins,gitlab)
+def call(jsondata,jenkins,github)
 {
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
@@ -13,7 +13,7 @@ int ecount = jsonObj.riglet_info.auth_users.size()
   List<String> JSON1 = new ArrayList<String>();
 	List<String> jsonStringa= new ArrayList<String>();
 	jsonStringa.add(jenkins)
-   jsonStringa.add(gitlab)
+   jsonStringa.add(github)
 	 for(j=0;j<ecount;j++)
    {
 	 def email=jsonObj.riglet_info.auth_users[j]
@@ -54,14 +54,14 @@ int ecount = jsonObj.riglet_info.auth_users.size()
   }
    }
 	   
-	  if(jsonStringa[i].contains("gitlab"))
+	  if(jsonStringa[i].contains("GITHUB"))
       {
         name="gitlab"
 	      //metric="commits"
         def jsonObjc= readJSON text: jsonStringa[i]
   //println(jsonObj)
-  def cnt =jsonObjc.gitlab.individual_commit_Details[j].Commit_cnt
-	       def email1=jsonObjc.gitlab.individual_commit_Details[j].email
+  def cnt =jsonObjc.GITHUB.individual_commit_Details[j].User_Commits_count
+	       def email1=jsonObjc.GITHUB.individual_commit_Details[j].User_email
 	       if(email==email1)
   {
     LIST.add(["toolName":name,"metricName":"commits","value":cnt])
