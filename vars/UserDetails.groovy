@@ -135,7 +135,7 @@ def resultJson = jsonSlurper.parse(reader)
   "teamfailurebuild_cnt" :FAILURE.size(),
   "individualsuccess": LISTSUCCESS,
   "individualfailure": LISTFAILURE,
-  "individualbuilds": LISTTOTAL,
+  "individualbuilds": LISTTOTAL
 			    
   )
 	
