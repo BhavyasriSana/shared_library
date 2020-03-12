@@ -51,6 +51,7 @@ def resultJson = jsonSlurper.parse(reader)
    {
 	   def cns=0
 	   def cnf=0
+	   def cnt=0
     def email=jsonObj.riglet_info.auth_users[j]
 	   print(email)
   for(i=1;i<value-1;i++)
@@ -87,7 +88,7 @@ def resultJson = jsonSlurper.parse(reader)
    }
    cns=USERS.size()
 	   cnt=USERT.size()
-	   print(USERT)
+	   print("mmmmmmmmmmmmmm"+USERT)
 
 	   LISF[j]=USERT.clone()
 	   LISS[j]=USERS.clone()
