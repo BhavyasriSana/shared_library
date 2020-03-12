@@ -11,7 +11,7 @@ def jsonObj = readJSON text: jsonString
 def mailcount = jsonObj.riglet_info.auth_users.size()
 	String pro = jsonObj.ci.jobs.job.job_name
 	String ProjectName=pro.replaceAll("\\[", "").replaceAll("\\]","");
-	print(mailcount)
+	//print(mailcount)
 	withCredentials([usernamePassword(credentialsId: 'jenkins_cred', passwordVariable: 'pass', usernameVariable: 'user')]) {
 //sh "curl -X GET -g http://52.14.229.175:8080/job/${JOB_NAME}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u suneel:11035ac86f58bc32d03d8e873b7cc063a3 -o username.json"
 	sh "curl -X GET -g http://18.224.172.87:8080/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u ${user}:${pass} -o username.json"
@@ -20,9 +20,9 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/username.json"),"UTF-8"))
 def resultJson = jsonSlurper.parse(reader)
 	def build=resultJson.builds[0].id
-	print(build)
+	//print(build)
 	int value = Integer.parseInt(build);
-	print(value)
+	//print(value)
 
 
  
@@ -53,7 +53,7 @@ def resultJson = jsonSlurper.parse(reader)
 	   def cnf=0
 	   def cnt=0
     def email=jsonObj.riglet_info.auth_users[j]
-	   print(email)
+	   //print(email)
   for(i=1;i<value-1;i++)
   {
  
@@ -80,17 +80,17 @@ def resultJson = jsonSlurper.parse(reader)
    {
 	   
 	   USERT.add(resultJson.builds[i])
-	   print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
+	   //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
 	   
    }
 		  
 		  
 	  }
-	  //int len = s-1;
+	  
    }
    cns=USERS.size()
 	   cnt=USERT.size()
-	   print("mmmmmmmmmmmmmm"+USERT)
+	   
 
 	   LIST[j]=USERT.clone()
 	   LISS[j]=USERS.clone()
