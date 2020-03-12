@@ -80,6 +80,8 @@ def resultJson = jsonSlurper.parse(reader)
    {
 	   
 	   USERT.add(resultJson.builds[i])
+	   print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
+	   
    }
 		  
 		  
