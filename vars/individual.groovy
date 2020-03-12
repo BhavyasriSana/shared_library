@@ -57,7 +57,7 @@ List<String> jsonStringa= new ArrayList<String>();
 	     print(emailT)
        if(mail.equals(emailT)){
          def countT=jsonObjb.JENKINS.individualbuilds[k].Total_cnt
-	    LIST.add(["metricName":"failure_builds","toolName":name,"value":countT])
+	    LIST.add(["metricName":"total_builds","toolName":name,"value":countT])
        }
 	    }
     }
