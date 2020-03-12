@@ -19,13 +19,6 @@ List<String> jsonStringa= new ArrayList<String>();
     int score=0
     String name="  "
 	  String metric=" "
-/*if(jsonStringa[i].contains("GITHUB"))
-    {
-    name="github"
-    def jsonObj1 = readJSON text: jsonStringa[i]
-  def count =jsonObj1.GITHUB.commits_count
-  LIST.add(["toolName":name,"metricName":"commits","value":count])
-   }*/
 	  
    if(jsonStringa[i].contains("JENKINS"))
     {
@@ -61,19 +54,7 @@ List<String> jsonStringa= new ArrayList<String>();
        }
 	    }
     }
-      /*if(jsonStringa[i].contains("Sonar"))
-    {
-	    name="sonar"
-	    def jsonObjc = readJSON text: jsonStringa[i]
-	    //print jsonObjc
-	    for(i=0;i<jsonObjc.Sonar.Metrics.component.measures.size();i++){
-		    //print jsonObjc.Sonar.Metrics.component.measures
-    def sonar_metric=jsonObjc.Sonar.Metrics.component.measures[i].metric
-		    def d=jsonObjc.Sonar.Metrics.component.measures[i].value
-    double data = Double.parseDouble(d); 
-       LIST.add(["toolName":name,"metricName":sonar_metric,"value":data])
-	    }
-    }*/
+    
      
 def jsonBuilder = new groovy.json.JsonBuilder()
 
