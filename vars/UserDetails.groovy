@@ -59,9 +59,9 @@ def resultJson = jsonSlurper.parse(reader)
  
    
    def state=resultJson.builds[i].result
-	  print (state)
+	  //print (state)
    def s=resultJson.builds[i].changeSets.size()
-	  print (s)
+	  //print (s)
 	  if (s>0){
 		  if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
 		  //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
@@ -76,7 +76,7 @@ def resultJson = jsonSlurper.parse(reader)
 	   
 	   USERF.add(resultJson.builds[i])
    }
-  else if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email))
+  if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email))
    {
 	   
 	   USERT.add(resultJson.builds[i])
