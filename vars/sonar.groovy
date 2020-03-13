@@ -25,8 +25,8 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
 --data-raw '{
     "rigletName":"GamificationTest",
     "toolName":"sonar"
-}
-' -o sonarCred.json"""
+}' -o sonarCred.json"""
+
 //def var=$(curl -X POST -H "Content-Type: application/json" -d "{"rigletName":"GamificationTest","toolName":"sonar"}" http://3.134.156.211:3013/api/riglets/connectorServerDetails)
  // echo $var
   
