@@ -1,6 +1,6 @@
 import groovy.json.*
-	@NonCPS
-create(String jsonBuilder){
+@NonCPS
+create(jsonBuilder){
 	sh "curl -X POST --header 'Content-Type: application/json' --data ${jsonBuilder}  http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
 }
 	
