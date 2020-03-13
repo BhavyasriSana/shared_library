@@ -14,26 +14,20 @@ create(){
   return jsonBuilder
 }
 
-def call(jsondata){
+def call(jsondata,rig){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
 
 String a = jsonObj.code_quality.projects.project.project_key
 String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
-def var = sh  """curl --location --request POST 'http://3.134.156.211:3013/api/riglets/connectorServerDetails' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "rigletName":"GamificationTest",
-    "toolName":"sonar"
-}'"""
-  echo $var
-
-//def var=$(curl -X POST -H "Content-Type: application/json" -d "{"rigletName":"GamificationTest","toolName":"sonar"}" http://3.134.156.211:3013/api/riglets/connectorServerDetails)
- // echo $var
   
-withCredentials([usernamePassword(credentialsId: 'sonar_cred1', passwordVariable: 'pass', usernameVariable: 'user')]) {
-  sh "curl -u ${user}:${pass} -X GET 'http://ec2-3-133-107-212.us-east-2.compute.amazonaws.com:9000/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json"
+  def jsonObja = readJSON text: rig
+	def IP=jsonObja.url
+	def user=jsonObja.userName
+	def pass=jsonObja.password
+
+  sh "curl -u ${user}:${pass} -X GET '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json"
   echo 'metrics collected'
-}
+
   create()
 }
