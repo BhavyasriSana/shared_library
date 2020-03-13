@@ -59,7 +59,7 @@ jsonBuilder(
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
   file.write(jsonBuilder.toPrettyString())	
 	def metrics1 = jsonBuilder.toPrettyString()
-sh "curl -X POST --header 'Content-Type: application/json' --data ${metrics1}  http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
+sh "curl -X POST --header 'Content-Type: application/json' --data "$(metrics1)"  http://ec2-13-232-248-254.ap-south-1.compute.amazonaws.com:3000/api/metrics/teams/add"
 }
 
 
