@@ -25,12 +25,13 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
 
   sh "curl -u ${user}:${pass} -X GET '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json"
   echo 'metrics collected'
+	
 	def resultJson = readJSON file: 'metrics.json'
   def jsonBuilder = new groovy.json.JsonBuilder()
   jsonBuilder.Sonar(
   "Metrics" : resultJson
   )
-  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/metric.json")
+  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json")
   file.write(jsonBuilder.toPrettyString())
   return jsonBuilder
 
