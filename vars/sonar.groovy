@@ -26,6 +26,7 @@ def var = sh  """curl --location --request POST 'http://3.134.156.211:3013/api/r
     "rigletName":"GamificationTest",
     "toolName":"sonar"
 }'"""
+  echo $var
 
 //def var=$(curl -X POST -H "Content-Type: application/json" -d "{"rigletName":"GamificationTest","toolName":"sonar"}" http://3.134.156.211:3013/api/riglets/connectorServerDetails)
  // echo $var
