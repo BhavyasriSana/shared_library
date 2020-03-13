@@ -20,13 +20,7 @@ def jsonObj = readJSON text: jsonString
 
 String a = jsonObj.code_quality.projects.project.project_key
 String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
- def var=$(curl --location --request POST 'http://3.134.156.211:3013/api/riglets/connectorServerDetails' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "rigletName":"GamificationTest",
-    "toolName":"sonar"
-}
-')
+ def var="$(curl -X POST --header 'Content-Type: application/json' --d {"rigletName":"GamificationTest","toolName":"sonar"} http://3.134.156.211:3013/api/riglets/connectorServerDetails)"
            print (var)
   
 withCredentials([usernamePassword(credentialsId: 'sonar_cred1', passwordVariable: 'pass', usernameVariable: 'user')]) {
