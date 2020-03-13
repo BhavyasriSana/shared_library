@@ -23,7 +23,8 @@ def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/
 def resultJson = jsonSlurper.parse(reader)
 	def build=resultJson.builds[0].id
 	//print(build)
-	int value = Integer.parseInt(build);
+	int val = Integer.parseInt(build);
+	int value=val-1
 	//print(value)
 
 
