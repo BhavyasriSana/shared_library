@@ -1,6 +1,5 @@
 import groovy.json.*
 
-@NonCPS
 create(){
 def resultJson = readJSON file: 'metrics.json'
   def jsonBuilder = new groovy.json.JsonBuilder()
