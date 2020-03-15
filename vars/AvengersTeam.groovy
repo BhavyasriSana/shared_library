@@ -1,5 +1,5 @@
 import groovy.json.*
-@NonCPS	
+//@NonCPS	
 def call(jsondata,github,jenkins,sonar){
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
@@ -41,13 +41,14 @@ if(jsonStringa[i].contains("GITHUB"))
 	    //print jsonObjc
 	    for(i=0;i<jsonObjc.Sonar.Metrics.component.measures.size();i++){
 		    //print jsonObjc.Sonar.Metrics.component.measures
-    def sonar_metric=jsonObjc.Sonar.Metrics.component.measures[i].metric
-		    def d=jsonObjc.Sonar.Metrics.component.measures[i].value
-    double data = Double.parseDouble(d); 
-       LIST.add(["toolName":name,"metricName":sonar_metric,"value":data])
+    		def sonar_metric=jsonObjc.Sonar.Metrics.component.measures[i].metric
+		def d=jsonObjc.Sonar.Metrics.component.measures[i].value
+    		double data = Double.parseDouble(d); 
+       		LIST.add(["toolName":name,"metricName":sonar_metric,"value":data])
 	    }
     }
      }
+	//print(LIST)
 def jsonBuilder = new groovy.json.JsonBuilder()
 
 jsonBuilder(
