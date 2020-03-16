@@ -124,10 +124,9 @@ List<String> JSON = new ArrayList<String>();
      //def JsonBuilder = new groovy.json.JsonBuilder()
 def jsonBuilder = new groovy.json.JsonBuilder()
 jsonBuilder(
-	//JSON,
+	JSON,
  "teamName":team,
-  "metrics" : LIST,
-	JSON
+  "metrics" : LIST
   
 ) 
 	print(jsonBuilder) 
