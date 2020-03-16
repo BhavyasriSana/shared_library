@@ -48,15 +48,15 @@ if(jsonStringa[i].contains("GITHUB"))
 	    }
     }
      }
-	//print(LIST)
-def jsonBuilder = new groovy.json.JsonBuilder()
+	print(LIST)
+/*def jsonBuilder = new groovy.json.JsonBuilder()
 
 jsonBuilder(
  "teamName":team,
   "metrics" : LIST
   
 ) 
-	print(jsonBuilder)
+	print(jsonBuilder)*/
 	//return jsonBuilder
   
   //File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
@@ -119,14 +119,15 @@ List<String> JSON = new ArrayList<String>();
 	//reward=0    
 	   
     }
+	print(JSON)
 	
-     def JsonBuilder = new groovy.json.JsonBuilder()
+     /*def JsonBuilder = new groovy.json.JsonBuilder()
 
 JsonBuilder(
    JSON
   
 ) 
-	print (JsonBuilder)
+	print (JsonBuilder)*/
   
   //File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
 //file1.write(JsonBuilder.toPrettyString())
