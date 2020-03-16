@@ -30,8 +30,6 @@ int ecount = jsonObj.riglet_info.auth_users.size()
 	   
 	    
      name="jenkins"
-    //  def jsonStringb = bamboo
-	   // def jsonString1 = jsonStringa[i]
 	   def jsonObja = readJSON text: jsonStringa[i]
 
   //println(jsonObja)
@@ -40,16 +38,8 @@ int ecount = jsonObj.riglet_info.auth_users.size()
   def tcnt =jsonObja.JENKINS.individualbuilds[j].Total_cnt
  def email1=jsonObja.JENKINS.individualsuccess[j].email
       
- // def res=bamboo1.bamboo.teamsuccessbuild_cnt
- // def obj = JSON.parse(bamboo1)
- //println(scnt)
- //int score=0
-	  
  if(email==email1)
   {
-   // LIST.add(["toolName":name,"metricName":"total_builds","value":total])
-	    
- 
 	   LIST.add(["toolName":name,"metricName":"success_builds","value":scnt])
 	    LIST.add(["toolName":name,"metricName":"failure_builds","value":fcnt])
 	  LIST.add(["toolName":name,"metricName":"total_builds","value":tcnt])
@@ -60,7 +50,6 @@ int ecount = jsonObj.riglet_info.auth_users.size()
 	  if(jsonStringa[i].contains("GITHUB"))
       {
         name="gitlab"
-	      //metric="commits"
         def jsonObjc= readJSON text: jsonStringa[i]
   //println(jsonObj)
   def cnt =jsonObjc.GITHUB.individual_commit_Details[j].User_Commits_count
