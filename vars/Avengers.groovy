@@ -126,7 +126,8 @@ def jsonBuilder = new groovy.json.JsonBuilder()
 jsonBuilder(
 	JSON,
  "teamName":team,
-  "metrics" : LIST
+  "metrics" : LIST,
+	JSON
   
 ) 
 	print(jsonBuilder) 
