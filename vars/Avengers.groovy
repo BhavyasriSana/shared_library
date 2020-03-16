@@ -55,7 +55,7 @@ jsonBuilder(
   "metrics" : LIST
   
 ) 
-	return jsonBuilder
+	//return jsonBuilder
   
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
   file.write(jsonBuilder.toPrettyString())
