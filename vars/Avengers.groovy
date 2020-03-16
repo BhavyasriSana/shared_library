@@ -125,7 +125,7 @@ JsonBuilder(
   
 ) 
   
-  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
-file.write(JsonBuilder.toPrettyString())
+  File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
+file1.write(JsonBuilder.toPrettyString())
 	
 }
