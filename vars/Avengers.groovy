@@ -118,14 +118,14 @@ List<String> JSON = new ArrayList<String>();
 	   
     }
 	
-     def jsonBuilder = new groovy.json.JsonBuilder()
+     def JsonBuilder = new groovy.json.JsonBuilder()
 
-jsonBuilder(
+JsonBuilder(
    JSON
   
 ) 
   
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
-file.write(jsonBuilder.toPrettyString())
+file.write(JsonBuilder.toPrettyString())
 	
 }
