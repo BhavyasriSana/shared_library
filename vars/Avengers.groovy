@@ -56,10 +56,11 @@ jsonBuilder(
   "metrics" : LIST
   
 ) 
+	print(jsonBuilder)
 	//return jsonBuilder
   
-  File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
-  file.write(jsonBuilder.toPrettyString())
+  //File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/Teamscore.json")
+  //file.write(jsonBuilder.toPrettyString())
 	
 List<String> JSON = new ArrayList<String>();
   List<String> LIST2 = new ArrayList<String>();
@@ -125,8 +126,9 @@ JsonBuilder(
    JSON
   
 ) 
+	print (JsonBuilder)
   
-  File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
-file1.write(JsonBuilder.toPrettyString())
+  //File file1 = new File("/var/lib/jenkins/workspace/${JOB_NAME}/game.json")
+//file1.write(JsonBuilder.toPrettyString())
 	
 }
