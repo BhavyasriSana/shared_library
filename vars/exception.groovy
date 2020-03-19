@@ -11,6 +11,8 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
 	def pass=jsonObja.password
   def response = sh(script: """curl -u ${user}:${pass} -X GET '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json""", returnStdout: true)
   println("RESPONSE   "+response) 
+	try
+	{
   //sh "curl -u ${user}:${pass} -X GET '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json"
   echo 'metrics collected'
 	
@@ -23,5 +25,25 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
   file.write(jsonBuilder.toPrettyString())
   return jsonBuilder
 
- // create()
+}
+	catch(Exception e)
+{
+	e.printStackTrace()
+	
+}
+	 finally{
+		
+		if(response.contains("200"))
+		println("data collected scuccesslfully")	
+	if(response.contains("404"))
+	println("Not found")
+	if(response.contains("400"))
+	println("Bad Request")
+        if(response.contains("401"))
+	println("Unauthorized")
+	if(response.contains("403"))
+		println("Forbidden")
+	if(response.contains("500"))
+		println("Internal Server Error")
+		 }
 }
