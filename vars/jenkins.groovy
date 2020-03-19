@@ -55,11 +55,9 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	  //print (s)
 	  if (s>0){
 		  if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
-		  //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
    {
    
     USERS.add(resultJson.builds[i])
-	   //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
 	  
    }
    else if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email) && state.equals("FAILURE"))
@@ -70,9 +68,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
   if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email))
    {
 	   
-	   USERT.add(resultJson.builds[i])
-	   //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
-	   
+	   USERT.add(resultJson.builds[i])   
    }
 		  	  
 	  }
@@ -98,7 +94,6 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
    }
 	for(i=1;i<value;i++)
   {
-   //def date=resultJson.results.result[i].buildCompletedDate
    def state=resultJson.builds[i].result
 	  //print(state)
 
@@ -135,13 +130,6 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/jenkins.json")
 file.write(jsonBuilder.toPrettyString())
 	return jsonBuilder
-	//def reader1 = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/bamboo.json"),"UTF-8"))
-//def resu = jsonSlurper.parse(reader1)
-
-	//println(resu.individualsuccess[2].Success_cnt)
-				   //println(jsonBuilder)
-	
-
 }
 	catch(Exception e)
 {
