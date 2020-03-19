@@ -55,7 +55,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	  //print (s)
 	  if (s>0){
 		  if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
-		  print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+		  //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
    {
    
     USERS.add(resultJson.builds[i])
