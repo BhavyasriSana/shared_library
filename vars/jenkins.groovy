@@ -1,9 +1,6 @@
 import groovy.json.*
 import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
-	
-
+//import groovy.json.JsonSlurper
 def call(JSON,rig)
 {
 def jsonString = JSON
@@ -26,12 +23,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	//print(build)
 	int val = Integer.parseInt(build);
 	int value=val-1
-	//print(value)
-
-
- 
-
-
+		
   List<String> USERS = new ArrayList<String>()
 	List<String> USERT = new ArrayList<String>()
 	List<String> USERF = new ArrayList<String>()
@@ -44,11 +36,6 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	List<String> SUCCESS = new ArrayList<String>()
     List<String> FAILURE = new ArrayList<String>()
 	
-
-
- 
-
-
 	def jsonBuilder = new groovy.json.JsonBuilder()
 
    for(j=0;j<mailcount;j++)
@@ -87,8 +74,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	   //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj8888888888888888888888888888")
 	   
    }
-		  
-		  
+		  	  
 	  }
 	  
    }
