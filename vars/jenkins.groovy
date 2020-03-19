@@ -14,7 +14,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	def user=jsonObja.userName
 	def pass=jsonObja.password
 	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${user}:${pass} '${IP}/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]]' -o outputjenkins.json """, returnStdout: true)
-	//println(response) 
+	println(response) 
 	//sh "curl -X GET -g ${IP}/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u ${user}:${pass} -o username.json"
 	try
 	{
@@ -55,7 +55,7 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	  //print (s)
 	  if (s>0){
 		  if(resultJson.builds[i].changeSets[s-1].items[0].authorEmail.equals(email) && state.equals("SUCCESS"))
-		  //print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+		  print("insidejjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
    {
    
     USERS.add(resultJson.builds[i])
