@@ -10,7 +10,7 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
 	def user=jsonObja.userName
 	def pass=jsonObja.password
   def response = sh(script: """curl -X GET -L -w '%{http_code}\\n' -u ${user}:${pass} '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json""", returnStdout: true)
-  println("RESPONSE   "+response) 
+  //println("RESPONSE   "+response) 
 	try
 	{
   //sh "curl -u ${user}:${pass} -X GET '${IP}/api/measures/component?component=${ProjectKey}&metricKeys=coverage,vulnerabilities,bugs,violations,complexity,tests,duplicated_lines,sqale_index' -o metrics.json"
