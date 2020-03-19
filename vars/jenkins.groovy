@@ -16,11 +16,12 @@ def mailcount = jsonObj.riglet_info.auth_users.size()
 	def IP=jsonObja.url
 	def user=jsonObja.userName
 	def pass=jsonObja.password
-	sh "curl -X GET -g ${IP}/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u ${user}:${pass} -o username.json"
-	
-	def jsonSlurper = new JsonSlurper()
-def reader = new BufferedReader(new InputStreamReader(new FileInputStream("/var/lib/jenkins/workspace/${JOB_NAME}/username.json"),"UTF-8"))
-def resultJson = jsonSlurper.parse(reader)
+	def response = sh(script: """curl  -X GET -L -w '%{http_code}\\n' -u ${user}:${pass} '${IP}/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]]' -o outputjenkins.json """, returnStdout: true)
+	//println(response) 
+	//sh "curl -X GET -g ${IP}/job/${ProjectName}/api/json?tree=builds[id,result,changeSets[items[authorEmail]]] -u ${user}:${pass} -o username.json"
+	try
+	{
+	def resultJson = readJSON file: 'outputjenkins.json'
 	def build=resultJson.builds[0].id
 	//print(build)
 	int val = Integer.parseInt(build);
@@ -155,4 +156,25 @@ file.write(jsonBuilder.toPrettyString())
 				   //println(jsonBuilder)
 	
 
+}
+	catch(Exception e)
+{
+	e.printStackTrace()
+	
+}
+	 finally{
+		
+		if(response.contains("200"))
+		println("data collected scuccesslfully")	
+	if(response.contains("404"))
+	println("Not found")
+	if(response.contains("400"))
+	println("Bad Request")
+        if(response.contains("401"))
+	println("Unauthorized")
+	if(response.contains("403"))
+		println("Forbidden")
+	if(response.contains("500"))
+		println("Internal Server Error")
+		 }	
 }
