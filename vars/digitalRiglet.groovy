@@ -2,7 +2,7 @@ import groovy.json.*
 import groovy.json.JsonOutput
 
 
-def riglet1(jsondata,scmjson,cijson,sonar)
+def call(jsondata,scmjson,cijson,sonar)
 {
 def jsonString = jsondata
 def jsonObj = readJSON text: jsonString
