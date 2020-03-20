@@ -26,12 +26,12 @@ for(i=0;i<jsonStringa.size();i++)
    
     String name="  "
 	 
-    if(jsonStringa[i].contains("GITHUB") && scm=="github")
-    {
-    name="github"
-    def jsonObj1 = readJSON text: jsonStringa[i]
-  def count =jsonObj1.GITHUB.commits_count
-  LIST.add(["toolName":name,"metricName":"commits","value":count])
+    	if(jsonStringa[i].contains("GITHUB") && scm=="github")
+    	{
+    	name="github"
+    	def jsonObjz = readJSON text: jsonStringa[i]
+  	def count =jsonObjz.GITHUB.commits_count
+  	LIST.add(["toolName":name,"metricName":"commits","value":count])
    }
    
 	  if(jsonStringa[i].contains("gitlab") && scm=="gitlab")
