@@ -138,7 +138,7 @@ def    total=jsonObja.Bamboo.individualtotal[j].totalBuilds
  
   def scnt =jsonObja.JENKINS.individualsuccess[j].Success_cnt
   def fcnt =jsonObja.JENKINS.individualfailure[j].Failure_cnt
-	    def    total=jsonObja.JENKINS.individualtotal[j].total_cnt
+	    def    total=jsonObja.JENKINS.individualtotal[j].Total_cnt
  def email1=jsonObja.JENKINS.individualsuccess[j].email
       
 
