@@ -19,7 +19,7 @@ String ProjectKey=a.replaceAll("\\[", "").replaceAll("\\]","");
 	def resultJson = readJSON file: 'metrics.json'
   def jsonBuilder = new groovy.json.JsonBuilder()
   jsonBuilder.sonar(
-  "Metrics" : resultJson
+  "metrics" : resultJson
   )
   File file = new File("/var/lib/jenkins/workspace/${JOB_NAME}/metrics.json")
   file.write(jsonBuilder.toPrettyString())
