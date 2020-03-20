@@ -13,6 +13,7 @@ int ecount = jsonObj.riglet_info.auth_users.size()
 List<String> jsonStringa= new ArrayList<String>();
  
    jsonStringa.add(scmjson)
+	print(jsonStringa)
 	jsonStringa.add(cijson)
 	jsonStringa.add(sonar)
 	List<String> JSON = new ArrayList<String>();
